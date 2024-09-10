@@ -1,0 +1,25 @@
+[
+    {
+        "entries": [
+            {
+                "text": "Deprecated `kubelet-registration-probe` and removed related code. `node-driver-registrar` on Windows now requires Kubernetes v1.23.10, v1.24.4, v1.25.0, or newer. No changes on Linux; Kubernetes v1.13 is still the minimum version."
+            },
+            {
+                "text": "Added support for contextual logging and implemented contextual logging checks using logcheck, which can be run with make test or make logcheck."
+            },
+            {
+                "text": "Added support for structured logging (the log messages have been changed due to the activation of structured logging)."
+            }
+        ],
+        "type": "bullet-list"
+    },
+    {
+        "links": [
+            {
+                "text": "CSI Node Driver Registrar Release Notes",
+                "url": "https://github.com/kubernetes-csi/node-driver-registrar/releases"
+            }
+        ],
+        "type": "learn-more"
+    }
+]
