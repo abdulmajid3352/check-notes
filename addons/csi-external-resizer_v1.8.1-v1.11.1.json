@@ -1,0 +1,28 @@
+[
+    {
+        "entries": [
+            {
+                "text": "Fixed a panic in the recovery path when marking PVC as resize in progress fails."
+            },
+            {
+                "text": "Fixed external-resizer crash when modifying volume with no previous volume attributes class."
+            },
+            {
+                "text": "Fixed a bug to prevent the VolumeResizeFailed event from being emitted during a resource conflict while setting FileSystemResizeRequired or VolumeResizeSuccess."
+            },
+            {
+                "text": "Added Modify Volume support for `VolumeAttributesClass`, requiring Kubernetes 1.29, with the `VolumeAttributesClass` feature gate and API enabled in both the Kubernetes cluster and the external resizer."
+            }
+        ],
+        "type": "bullet-list"
+    },
+    {
+        "links": [
+            {
+                "text": "CSI External Resizer Release Notes",
+                "url": "https://github.com/kubernetes-csi/external-resizer/releases"
+            }
+        ],
+        "type": "learn-more"
+    }
+]
