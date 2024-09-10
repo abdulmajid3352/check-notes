@@ -17,9 +17,9 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Configure AWS OIDC credentials
-        uses: aws-actions/configure-aws-credentials@v2
+        uses: aws-actions/configure-aws-credentials@v3
         with:
-          role-to-assume: arn:aws:iam::471112860139:role/release-notes-publish-role-gh-actions  # Use the IAM role ARN
+          role-to-assume: arn:aws:iam::471112860139:oidc-provider/token.actions.githubusercontent.com
           aws-region: us-west-2
 
       - name: Upload release notes to S3
