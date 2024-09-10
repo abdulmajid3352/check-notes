@@ -1,0 +1,23 @@
+name: Upload Release Notes to S3
+
+on:
+  pull_request:
+    types: [closed]
+
+jobs:
+  upload-release-notes:
+    if: github.event.pull_request.merged == true
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          role-to-assume: arn:aws:iam::471112860139:role/release-notes-publish-role-gh-actions
+          aws-region: us-west-2
+
+      - name: Upload release notes to S3
+        run: |
+          aws s3 cp ./path_to_release_notes/release_notes.md s3://releaseNotesBucket/release_notes_$(date +%F).md
