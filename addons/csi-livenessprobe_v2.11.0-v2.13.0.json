@@ -1,0 +1,28 @@
+[
+    {
+        "entries": [
+            {
+                "text": "Fixed panic on connection failure."
+            },
+            {
+                "text": "Fixed the liveness probe process to prevent crashing when it cannot access the associated CSI driver; it now only fails all kubelet probes, likely with a `connection refused` error."
+            },
+            {
+                "text": "Added support for structured logging (the log messages have been changed due to the activation of structured logging)."
+            },
+            {
+                "text": "Added support for contextual logging and integrated logging checks using `logcheck`. (Run `logcheck` with `make test` or `make logcheck`)."
+            }
+        ],
+        "type": "bullet-list"
+    },
+    {
+        "links": [
+            {
+                "text": "CSI Liveness Probe Release Notes",
+                "url": "https://github.com/kubernetes-csi/livenessprobe/releases"
+            }
+        ],
+        "type": "learn-more"
+    }
+]
