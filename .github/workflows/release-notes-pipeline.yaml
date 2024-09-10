@@ -8,14 +8,18 @@ jobs:
   upload-release-notes:
     if: github.event.pull_request.merged == true
     runs-on: ubuntu-latest
+    permissions:
+      id-token: write      # This enables OIDC token for the workflow
+      contents: read       # This allows reading the contents of the repository
+
     steps:
       - name: Checkout code
-        uses: actions/checkout@v3  # Use the latest version
+        uses: actions/checkout@v3
 
-      - name: Configure AWS credentials
-        uses: aws-actions/configure-aws-credentials@v2  # Updated to v2
+      - name: Configure AWS OIDC credentials
+        uses: aws-actions/configure-aws-credentials@v2
         with:
-          role-to-assume: arn:aws:iam::${{ secrets.AWS_ACCOUNT_ID }}:role/release-notes-publish-role-gh-actions
+          role-to-assume: arn:aws:iam::471112860139:role/release-notes-publish-role-gh-actions  # Use the IAM role ARN
           aws-region: us-west-2
 
       - name: Upload release notes to S3
