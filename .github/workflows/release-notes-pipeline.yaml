@@ -10,12 +10,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v3  # Use the latest version
 
       - name: Configure AWS credentials
-        uses: aws-actions/configure-aws-credentials@v1
+        uses: aws-actions/configure-aws-credentials@v2  # Updated to v2
         with:
-          role-to-assume: arn:aws:iam::471112860139:role/release-notes-publish-role-gh-actions
+          role-to-assume: arn:aws:iam::${{ secrets.AWS_ACCOUNT_ID }}:role/release-notes-publish-role-gh-actions
           aws-region: us-west-2
 
       - name: Upload release notes to S3
