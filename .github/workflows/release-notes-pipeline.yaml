@@ -1,27 +1,27 @@
-name: Upload Release Notes to S3
+name: Deploy to S3
 
 on:
-  pull_request:
-    types: [closed]
+  push:
+    branches:
+      - main
+
+permissions:
+  id-token: write
+  contents: read
 
 jobs:
-  upload-release-notes:
-    if: github.event.pull_request.merged == true
+  deploy:
     runs-on: ubuntu-latest
-    permissions:
-      id-token: write      # This enables OIDC token for the workflow
-      contents: read       # This allows reading the contents of the repository
-
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
+    - name: Checkout repository
+      uses: actions/checkout@v3
 
-      - name: Configure AWS OIDC credentials
-        uses: aws-actions/configure-aws-credentials@v2
-        with:
-          role-to-assume: arn:aws:iam::471112860139:oidc-provider/token.actions.githubusercontent.com
-          aws-region: us-west-2
+    - name: Configure AWS credentials from OpenID Connect
+      uses: aws-actions/configure-aws-credentials@v3
+      with:
+        role-to-assume: arn:aws:iam::471112860139:role/github.to.aws.oicd
+        aws-region: us-west-2
 
-      - name: Upload release notes to S3
-        run: |
-          aws s3 cp ./path_to_release_notes/release_notes.md s3://releaseNotesBucket/release_notes_$(date +%F).md
+    - name: Sync files to S3
+      run: |
+        aws s3 sync . s3://s3-releasenotes-demo
