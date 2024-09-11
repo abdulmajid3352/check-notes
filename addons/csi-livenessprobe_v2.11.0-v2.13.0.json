@@ -11,7 +11,7 @@
                 "text": "Added support for structured logging (the log messages have been changed due to the activation of structured logging)."
             },
             {
-                "text": "Added ok support for contextual logging and integrated logging checks using `logcheck`. (Run `logcheck` with `make test` or `make logcheck`)."
+                "text": "Added support for contextual logging and integrated logging checks using `logcheck`. (Run `logcheck` with `make test` or `make logcheck`)."
             }
         ],
         "type": "bullet-list"
