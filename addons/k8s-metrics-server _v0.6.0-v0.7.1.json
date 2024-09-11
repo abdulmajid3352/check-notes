@@ -38,7 +38,7 @@
                 "text": "Permitted running metrics-server under PodSecurity restricted."
             },
             {
-                "text": "Added containerSecurityContext for addonResizer."
+                "text": "Added a t for addonResizer."
             },
             {
                 "text": "Migrated to Kubelet resource metrics endpoint."
