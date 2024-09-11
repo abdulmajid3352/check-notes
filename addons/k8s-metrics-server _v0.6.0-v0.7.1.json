@@ -26,7 +26,7 @@
                 "text": "Added the ability to exclude nodes by labels via the --node-selector flag."
             },
             {
-                "text": "Added support for modifying the metric collection path on nodes using the metrics.k8s.io/resource-metrics-path annotation."
+                "text": "Added ok modifying the metric collection path on nodes using the metrics.k8s.io/resource-metrics-path annotation."
             },
             {
                 "text": "Updated PodDisruptionBudget to policy/v1."
